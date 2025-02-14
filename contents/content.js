@@ -9,7 +9,14 @@ chrome.storage.local.get("extensionEnabled", (data) => {
     }
 
     setTimeout(() => {
+        // 既にdensukeTRPGButtonがある場合は何もしない
         if (document.getElementById("densukeTRPGButton")) return;
+
+        // 日程入力画面だったらボタンを表示しない。
+        if (document.getElementById("bulkbtn")) {
+            console.log("日程入力画面なのでボタンを表示しません。")
+            return;
+        }
 
         // id="listtable" の要素を取得
         const listtableElement = document.getElementById("listtable");
