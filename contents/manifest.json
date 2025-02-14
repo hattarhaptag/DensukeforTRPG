@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Densuke for TRPG",
+  "version": "1.0",
+  "description": "伝助をTRPGプレイヤー用に使いやすくする拡張機能",
+  "permissions": ["storage"],
+  "host_permissions": ["https://densuke.biz/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://densuke.biz/list?cd=*"],
+      "js": ["content.js"],
+      "run-at": "document_idle"
+    }
+  ]
+}
